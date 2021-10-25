@@ -1,0 +1,118 @@
+﻿@model List<E_ticaret.Core.Model.Entity.Product>
+@{
+    ViewBag.Title = "Anasayfa";
+    var isLogin = (bool)ViewBag.IsLogin;
+}
+
+
+<div class="slideshow-container" style="margin-top:20px">
+
+    <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="https://res.cloudinary.com/upsie/image/upload/f_auto,q_auto/v1600707091/Blog/1200x400-Smartphone-Header-Blog41-v1.jpg" style="width:100%; height:400px;">
+        <div class="text"></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="https://www.exuma.com.tr/image/cache/catalog/aksesasuar-banner-1200x400.jpg" style="width: 100%; height:400px;">
+        <div class="text"></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="https://www.amkmc.org.sg/wp/wp-content/uploads/1600x400-blank-1.jpg" style="width: 100%; height: 400px;">
+        <div class="text"></div>
+    </div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+<h3>Son 5 Ürün</h3>
+@{
+    foreach (var item in Model)
+    {
+        <div class="productBox">
+            <p class="title">@item.Name </p>
+            <img src="@item.Image" />
+            <p>
+                @item.Brand
+            </p>
+            <p>
+                @item.Model
+            </p>
+            <p>
+                @item.Price.ToString("##,## ₺")
+            </p>
+            <p>
+                @item.Description
+            </p>
+            <a href="/urun/@item.Name.Replace(" ","-")/@item.ID" class=" btn btn-success">İncele</a>
+            @{
+                if (isLogin)
+                {
+                    <a href="#" data-pID="@item.ID" class=" btn btn-default addCart"><i class="fas fa-shopping-cart"></i>Sepete Ekle</a>
+                }
+            }
+        </div>
+    }
+}
+<di id="andModal">
+    Ürün sepete atılmıştır.<br />
+    <a href="/Sepetim" class="btn btn-success">Sepete Git</a>
+</di>
+<div class="row"></div>
+<style>
+    .productBox {
+        width: 190px;
+        float: left;
+        margin: 15px;
+        border: 2px solid #808080;
+        padding: 15px;
+    }
+
+        .productBox img {
+            width:100%;
+        }
+
+        .productBox .title {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .productBox p {
+            font-weight:lighter;
+            text-align:left;
+        }
+</style>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#andModal").dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+
+            $(".addCart").on("click", function () {
+                var pid = $(this).attr("data-pID");
+                $.post("/Cart/AddProduct?productID=" + pid + "&quantity=1", function () {
+                    $("#andModal").dialog("open");
+                });
+                return false;
+            });
+        });</script>
+}
+
+

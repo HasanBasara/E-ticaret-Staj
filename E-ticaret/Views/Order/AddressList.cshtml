@@ -1,0 +1,46 @@
+﻿@model IEnumerable<E_ticaret.Core.Model.Entity.UserAddress>
+
+@{
+    ViewBag.Title = "AddressList";
+}
+
+<h2>Adres Listeniz</h2>
+
+
+    @Html.ActionLink("Yeni Adres Ekle", "CreateUserAddress", new { @class = "btn btn-success" })
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            Seç
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.ActionLink("Seç", "CreateOrder", new { id=item.ID }, new {@class="btn btn-success"})
+
+        </td>
+    </tr>
+}
+
+</table>

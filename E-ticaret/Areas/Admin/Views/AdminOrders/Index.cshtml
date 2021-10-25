@@ -1,0 +1,112 @@
+﻿@model IEnumerable<E_ticaret.Core.Model.Entity.Order>
+
+@{
+    ViewBag.Title = "Siparisler";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
+
+
+<h2>Siparişler</h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Status.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserAddress.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalProductPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalTaxPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalDiscount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateUserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateUserID)
+        </th>
+        <th>
+            Güncelle
+        </th>
+        <th>
+            Detay
+        </th>
+        <th>
+            Sil
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Status.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.Name)
+        @Html.DisplayFor(modelItem => item.User.LastName)
+        @Html.DisplayFor(modelItem => item.User.Email)
+        @Html.DisplayFor(modelItem => item.User.Telephone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UserAddress.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalProductPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalTaxPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalDiscount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreateDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreateUserID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UpdateDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UpdateUserID)
+    </td>
+    <td>
+        @Html.ActionLink("Güncelle", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
+    </td>
+    <td>
+        @Html.ActionLink("Detay", "Details", new { id = item.ID }, new { @class = "btn btn-success" })
+    </td>
+    <td>
+        @Html.ActionLink("Sil", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+    }
+
+</table>

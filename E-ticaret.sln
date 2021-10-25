@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-ticaret", "E-ticaret\E-ticaret.csproj", "{81B2BFC9-A544-4EBB-8DBE-61851E9367F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-ticaret.Core.Model", "E-ticaret.Core.Model\E-ticaret.Core.Model.csproj", "{9485F316-B92E-4580-9CFD-EA636FF82912}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81B2BFC9-A544-4EBB-8DBE-61851E9367F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B2BFC9-A544-4EBB-8DBE-61851E9367F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B2BFC9-A544-4EBB-8DBE-61851E9367F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B2BFC9-A544-4EBB-8DBE-61851E9367F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9485F316-B92E-4580-9CFD-EA636FF82912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9485F316-B92E-4580-9CFD-EA636FF82912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9485F316-B92E-4580-9CFD-EA636FF82912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9485F316-B92E-4580-9CFD-EA636FF82912}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24BB8F22-422A-4181-8BB4-E443E29CF307}
+	EndGlobalSection
+EndGlobal
